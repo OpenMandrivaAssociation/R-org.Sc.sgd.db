@@ -1,10 +1,10 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 %global packname  org.Sc.sgd.db
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
 Version:          2.6.4
-Release:          1
+Release:          2
 Summary:          Genome wide annotation for Yeast
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
