@@ -1,3 +1,4 @@
+%bcond_without bootstrap
 %global packname  org.Sc.sgd.db
 %global rlibdir  %{_datadir}/R/library
 
@@ -11,12 +12,17 @@ URL:              http://bioconductor.org/packages/release/data/annotation/html/
 Source0:          http://bioconductor.org/packages/release/data/annotation/src/contrib/%{packname}_%{version}.tar.gz
 BuildArch:        noarch
 Requires:         R-core
-Requires:         R-methods R-AnnotationDbi 
-Requires:         R-methods R-AnnotationDbi 
-Requires:         R-annotate 
+%if %{with bootstrap}
+Requires:         R-methods R-AnnotationDbi R-annotate 
+%else
+Requires:         R-methods R-AnnotationDbi R-annotate R-hgu95av2.db
+%endif
 BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods R-AnnotationDbi
-BuildRequires:    R-methods R-AnnotationDbi 
-BuildRequires:    R-annotate 
+%if %{with bootstrap}
+BuildRequires:    R-methods R-AnnotationDbi R-annotate
+%else
+BuildRequires:    R-methods R-AnnotationDbi R-annotate R-hgu95av2.db
+%endif
 
 %description
 Genome wide annotation for Yeast, primarily based on mapping using ORF
@@ -33,8 +39,10 @@ mkdir -p %{buildroot}%{rlibdir}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
+%if %{without bootstrap}
 %check
 %{_bindir}/R CMD check %{packname}
+%endif
 
 %files
 %dir %{rlibdir}/%{packname}
