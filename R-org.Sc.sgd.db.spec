@@ -4,7 +4,7 @@
 
 Name:             R-%{packname}
 Version:          2.6.4
-Release:          2
+Release:          3
 Summary:          Genome wide annotation for Yeast
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
