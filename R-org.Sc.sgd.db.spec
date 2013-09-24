@@ -3,13 +3,13 @@
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.6.4
-Release:          3
+Version:          2.9.1
+Release:          1
 Summary:          Genome wide annotation for Yeast
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/data/annotation/html/%{packname}.html
-Source0:          http://bioconductor.org/packages/release/data/annotation/src/contrib/%{packname}_%{version}.tar.gz
+Source0:          http://bioconductor.org/packages/release/data/annotation/src/contrib/org.Sc.sgd.db_2.9.1.tar.gz
 BuildArch:        noarch
 Requires:         R-core R-methods R-AnnotationDbi R-annotate
 %if %{without bootstrap}
@@ -51,3 +51,4 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/extdata
 %{rlibdir}/%{packname}/help
+
