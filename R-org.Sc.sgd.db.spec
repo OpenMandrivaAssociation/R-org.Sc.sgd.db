@@ -8,7 +8,7 @@ Release:          3
 Summary:          Genome wide annotation for Yeast
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
-URL:              http://bioconductor.org/packages/release/data/annotation/html/%{packname}.html
+URL:              https://bioconductor.org/packages/release/data/annotation/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/data/annotation/src/contrib/%{packname}_%{version}.tar.gz
 BuildArch:        noarch
 Requires:         R-core R-methods R-AnnotationDbi R-annotate
